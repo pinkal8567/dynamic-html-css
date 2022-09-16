@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   htmlData = ``
   cssData = ``
 
-  constructor(public res: Renderer2,
+  constructor(public renderer: Renderer2,
       @Inject(DOCUMENT) private document: Document,
       private elementRef: ElementRef,
       private appService: AppService) {
@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
       const child = this.document.createElement('style');
       this.htmlData = res.htmlData;
       child.innerHTML= res.cssData;
-      this.res.appendChild(this.elementRef.nativeElement, child);
+      this.renderer.appendChild(this.elementRef.nativeElement, child);
     })
   }
 }
